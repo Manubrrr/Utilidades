@@ -39,4 +39,5 @@ interface TareaDao {
     // Flow<List<Tarea>> => la lista se actualiza sola cuando se insertan/borran/actualizan tareas.
     @Query("SELECT * from tareas ORDER BY titulo ASC")
     fun getAllTareas(): Flow<List<Tarea>>
+
 }

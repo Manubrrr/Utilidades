@@ -9,11 +9,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import es.fpsumma.dam2.utilidades.ui.navigation.AppNavHost
 import es.fpsumma.dam2.utilidades.ui.theme.UtilidadesTheme
+import es.fpsumma.dam2.utilidades.ui.viewmodel.AsignaturaViewModel
 import es.fpsumma.dam2.utilidades.ui.viewmodel.TareasViewModel
 
-
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,8 +25,15 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp() {
     val navController = rememberNavController()
-    val tareasViewModel: TareasViewModel =viewModel()
+    val tareasViewModel: TareasViewModel = viewModel()
+    val asignaturaViewModel: AsignaturaViewModel = viewModel()
+
     UtilidadesTheme {
-        AppNavHost(navController = navController, tareasViewModel)
+        // CORRECCIÓN: Pasar los 3 parámetros que necesita AppNavHost
+        AppNavHost(
+            navController = navController,
+            tareasViewModel = tareasViewModel,
+            asignaturaViewModel = asignaturaViewModel
+        )
     }
 }
