@@ -29,7 +29,6 @@ fun MyApp() {
     val asignaturaViewModel: AsignaturaViewModel = viewModel()
 
     UtilidadesTheme {
-        // CORRECCIÓN: Pasar los 3 parámetros que necesita AppNavHost
         AppNavHost(
             navController = navController,
             tareasViewModel = tareasViewModel,

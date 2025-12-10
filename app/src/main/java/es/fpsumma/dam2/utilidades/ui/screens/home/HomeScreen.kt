@@ -37,7 +37,12 @@ fun HomeScreen(navController: NavController) {
             ) {
                 Text("Listado de tareas")
             }
-
+            Button(
+                onClick = { navController.navigate(Routes.ASIGNATURA_SCREEN) },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Listado de asignaturas")
+            }
         }
     }
 }

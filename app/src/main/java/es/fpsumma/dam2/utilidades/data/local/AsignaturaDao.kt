@@ -30,7 +30,7 @@ interface AsignaturaDao {
     @Query("SELECT * from asignaturas WHERE id = :id")
     fun getAsignatura(id: Int): Flow<Asignatura>
 
-    @Query("SELECT * from asignaturas ORDER BY asignatura ASC")
+    @Query("SELECT * from asignaturas ORDER BY modulo ASC")
     fun getAllAsignaturas(): Flow<List<Asignatura>>
 
 }

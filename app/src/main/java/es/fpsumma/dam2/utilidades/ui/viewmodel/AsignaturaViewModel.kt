@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import androidx.room.Room
 import es.fpsumma.dam2.utilidades.data.local.AppDatabase
 import es.fpsumma.dam2.utilidades.model.Asignatura
-import es.fpsumma.dam2.utilidades.model.Tarea
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
@@ -19,7 +18,7 @@ class AsignaturaViewModel(app: Application) : AndroidViewModel(app) {
     ).fallbackToDestructiveMigration(false).build()
 
 
-    private val dao = db.tareaDao()
+    private val dao = db.asignaturasDao()
 
 
     val asignaturas: StateFlow<List<Asignatura>> =
@@ -30,8 +29,8 @@ class AsignaturaViewModel(app: Application) : AndroidViewModel(app) {
         )
 
 
-    fun addAsignatura(asignatura: String, trimestre: Int, curso: Int) = viewModelScope.launch {
-        dao.insert(Asignaturas(asignatura = asignatura, trimestre = trimestre, curso = curso))
+    fun addAsignatura(modulo: String, trimestre: Int, curso: Int) = viewModelScope.launch {
+        dao.insert(Asignatura(modulo = modulo, trimestre = trimestre, curso = curso))
     }
 
 
